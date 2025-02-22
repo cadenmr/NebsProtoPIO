@@ -53,7 +53,7 @@ void setup() {
 
   pixels.setBrightness(10);
 
-  setAll_sprite(eye_lefthand_norm, center_blep3, eye_righthand_norm, colors, state);
+  setAll_sprite(Sprites::eye_lefthand_norm, Sprites::center_blep3, Sprites::eye_righthand_norm, colors, state);
 
   switchMillis = millis(); // TODO: testing - remove me
 
@@ -102,7 +102,7 @@ void loop() {
 
       if (!updated) { 
 
-        setAll_sprite(eye_lefthand_norm, center_norm, eye_righthand_norm, colors, state); 
+        setAll_sprite(Sprites::eye_lefthand_norm, Sprites::center_norm, Sprites::eye_righthand_norm, colors, state); 
 
         anim_BlinkEnabled = true;
         anim_BlinkEventNextStartingMillis = millis() + ANIM_BLINK_DELAY_MS;
@@ -125,22 +125,22 @@ void loop() {
         anim_BlepTransitionStagesStarted[0] = true;
         anim_BlepTransitionStartingMillis = millis();
 
-        setCenter_sprite(center_blep0, colors, ST_NORM);
+        setCenter_sprite(Sprites::center_blep0, colors, ST_NORM);
         pixels.show();
 
       } else if (millis() > (anim_BlepTransitionStartingMillis + (ANIM_BLEPTRANSITION_DURATION_MS / 3)) && !anim_BlepTransitionStagesStarted[1]) {
 
         anim_BlepTransitionStagesStarted[1] = true;
-        setAll_sprite(eye_lefthand_blink1, center_blep1, eye_righthand_blink1, colors, ST_NORM);
+        setAll_sprite(Sprites::eye_lefthand_blink1, Sprites::center_blep1, Sprites::eye_righthand_blink1, colors, ST_NORM);
 
       } else if (millis() > (anim_BlepTransitionStartingMillis + ( 2 * (ANIM_BLEPTRANSITION_DURATION_MS / 3))) && !anim_BlepTransitionStagesStarted[2]) {
 
         anim_BlepTransitionStagesStarted[2] = true;
-        setAll_sprite(eye_lefthand_blink1, center_blep2, eye_righthand_blink1, colors, ST_NORM);
+        setAll_sprite(Sprites::eye_lefthand_blink1, Sprites::center_blep2, Sprites::eye_righthand_blink1, colors, ST_NORM);
 
       } else if (millis() > (anim_BlepTransitionStartingMillis + ANIM_BLEPTRANSITION_DURATION_MS)) {
 
-        setAll_sprite(eye_lefthand_blink2, center_blep3, eye_righthand_blink2, colors, ST_NORM);
+        setAll_sprite(Sprites::eye_lefthand_blink2, Sprites::center_blep3, Sprites::eye_righthand_blink2, colors, ST_NORM);
 
         anim_BlepTransitionStagesStarted[0] = false;
         anim_BlepTransitionStagesStarted[1] = false;
@@ -162,22 +162,22 @@ void loop() {
         anim_BlepTransitionStagesStarted[0] = true;
         anim_BlepTransitionStartingMillis = millis();
 
-        setAll_sprite(eye_lefthand_blink2, center_blep3, eye_righthand_blink2, colors, ST_NORM);
+        setAll_sprite(Sprites::eye_lefthand_blink2, Sprites::center_blep3, Sprites::eye_righthand_blink2, colors, ST_NORM);
         pixels.show();
 
       } else if (millis() > (anim_BlepTransitionStartingMillis + (ANIM_BLEPTRANSITION_DURATION_MS / 3)) && !anim_BlepTransitionStagesStarted[1]) {
 
         anim_BlepTransitionStagesStarted[1] = true;
-        setAll_sprite(eye_lefthand_blink1, center_blep2, eye_righthand_blink1, colors, ST_NORM);
+        setAll_sprite(Sprites::eye_lefthand_blink1, Sprites::center_blep2, Sprites::eye_righthand_blink1, colors, ST_NORM);
 
       } else if (millis() > (anim_BlepTransitionStartingMillis + ( 2 * (ANIM_BLEPTRANSITION_DURATION_MS / 3))) && !anim_BlepTransitionStagesStarted[2]) {
 
         anim_BlepTransitionStagesStarted[2] = true;
-        setAll_sprite(eye_lefthand_blink1, center_blep1, eye_righthand_blink1, colors, ST_NORM);
+        setAll_sprite(Sprites::eye_lefthand_blink1, Sprites::center_blep1, Sprites::eye_righthand_blink1, colors, ST_NORM);
 
       } else if (millis() > (anim_BlepTransitionStartingMillis + ANIM_BLEPTRANSITION_DURATION_MS)) {
 
-        setAll_sprite(eye_lefthand_blink1, center_blep0, eye_righthand_blink1, colors, ST_NORM);
+        setAll_sprite(Sprites::eye_lefthand_blink1, Sprites::center_blep0, Sprites::eye_righthand_blink1, colors, ST_NORM);
 
         anim_BlepTransitionStagesStarted[0] = false;
         anim_BlepTransitionStagesStarted[1] = false;
@@ -194,7 +194,7 @@ void loop() {
       anim_BlinkEnabled = false;
       anim_SpeakNormEnabled = false;
 
-      if (!updated) { setAll_sprite(eye_lefthand_blink2, center_blep3, eye_righthand_blink2, colors, ST_NORM); updated = true; }
+      if (!updated) { setAll_sprite(Sprites::eye_lefthand_blink2, Sprites::center_blep3, Sprites::eye_righthand_blink2, colors, ST_NORM); updated = true; }
 
       break;
 
@@ -203,7 +203,7 @@ void loop() {
       anim_BlinkEnabled = false;
       anim_SpeakNormEnabled = false;
 
-      if (!updated) { setAll_sprite(eye_lefthand_u, center_uwu, eye_righthand_u, colors, 1); updated = true; }
+      if (!updated) { setAll_sprite(Sprites::eye_lefthand_u, Sprites::center_uwu, Sprites::eye_righthand_u, colors, 1); updated = true; }
 
   }
 
@@ -218,8 +218,8 @@ void loop() {
 
       anim_BlinkStagesStarted[0] = true;
 
-      setLefthandEye_sprite(eye_lefthand_blink1, colors, state);
-      setRighthandEye_sprite(eye_righthand_blink1, colors, state);
+      setLefthandEye_sprite(Sprites::eye_lefthand_blink1, colors, state);
+      setRighthandEye_sprite(Sprites::eye_righthand_blink1, colors, state);
 
       pixels.show();
 
@@ -227,8 +227,8 @@ void loop() {
 
       anim_BlinkStagesStarted[1] = true;
 
-      setLefthandEye_sprite(eye_lefthand_blink2, colors, state);
-      setRighthandEye_sprite(eye_righthand_blink2, colors, state);
+      setLefthandEye_sprite(Sprites::eye_lefthand_blink2, colors, state);
+      setRighthandEye_sprite(Sprites::eye_righthand_blink2, colors, state);
 
       pixels.show();
 
@@ -236,8 +236,8 @@ void loop() {
 
       anim_BlinkStagesStarted[2] = true;
 
-      setLefthandEye_sprite(eye_lefthand_blink1, colors, state);
-      setRighthandEye_sprite(eye_righthand_blink1, colors, state);
+      setLefthandEye_sprite(Sprites::eye_lefthand_blink1, colors, state);
+      setRighthandEye_sprite(Sprites::eye_righthand_blink1, colors, state);
 
       pixels.show();
 
@@ -250,8 +250,8 @@ void loop() {
       anim_BlinkStagesStarted[1] = false;
       anim_BlinkStagesStarted[2] = false;
 
-      setLefthandEye_sprite(eye_lefthand_norm, colors, state);
-      setRighthandEye_sprite(eye_righthand_norm, colors, state);
+      setLefthandEye_sprite(Sprites::eye_lefthand_norm, colors, state);
+      setRighthandEye_sprite(Sprites::eye_righthand_norm, colors, state);
 
       pixels.show();
 
@@ -272,7 +272,7 @@ void loop() {
       case SPEAKST_NORM_IDLE:
 
         if (!anim_SpeakScreenUpdated) {
-          setCenter_sprite(center_norm, colors, ST_NORM);
+          setCenter_sprite(Sprites::center_norm, colors, ST_NORM);
           pixels.show();
           anim_SpeakScreenUpdated = true;
         }
@@ -289,14 +289,14 @@ void loop() {
 
 
         if (!anim_SpeakScreenUpdated) {
-          setCenter_sprite(center_speak1, colors, ST_NORM);
+          setCenter_sprite(Sprites::center_speak1, colors, ST_NORM);
           pixels.show();
           anim_SpeakScreenUpdated = true;
         }
 
         if (millis() > anim_SpeakAnimStartedMillis + (ANIM_SPEAK_DURATION_MS / 2)) {
 
-          setCenter_sprite(center_speak2, colors, ST_NORM);
+          setCenter_sprite(Sprites::center_speak2, colors, ST_NORM);
 
           anim_SpeakScreenUpdated = false;
           anim_SpeakState = SPEAKST_NORM_HOLD_ON;
